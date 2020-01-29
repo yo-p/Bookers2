@@ -1,0 +1,18 @@
+<% if flash[:notice] %>
+  <div class="flash">
+   <%= flash[:notice] %>
+  </div>
+ <% end %>
+<h1>Books detail</h1>
+<table>
+  <tbody>
+  	<tr>
+  	  <td><%= @book.title %></td>
+  	  <td><%= @book.body %></td>
+  	  <td><%= link_to "edit", edit_book_path %></td>
+  	  <td><%= link_to "destroy", book_path(@book.id), method: :delete %></td>
+  	</tr>
+  </tbody>
+</table>
+
+<%= render 'users/list', book:@book, user:@user %>

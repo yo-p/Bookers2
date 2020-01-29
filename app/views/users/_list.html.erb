@@ -1,0 +1,29 @@
+<h1>User info</h1>
+  <div>
+  <%= attachment_image_tag user, :profile_image, size:"100x100", format: 'jpeg' %>
+  <table>
+   <tr>
+    <th>email</th>
+    <th><%= user.name %></th>
+    <th></th>
+   </tr>
+   <tr>
+    <th>introduction</th>
+    <th><%= user.introduction %></th>
+   </tr>
+  </table>
+  <P><%= link_to "edit", edit_user_path(user) %></P>
+  <h3>New book</h3>
+
+  <%= form_for(book) do |f| %>
+
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+
+  <h4>Body</h4>
+  <%= f.text_area :body %>
+
+  <br><%= f.submit 'Create Book' %></br>
+
+  <% end %>
+</div>

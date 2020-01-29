@@ -1,0 +1,19 @@
+<h1>Users</h1>
+<table>
+  <tbody>
+  	<tr>
+  	  <td>image</td>
+  	  <td>name</td>
+  	</tr>
+  </tbody>
+  <tbody>
+   <% @users.each do |user| %>
+   <tr>
+   	<td><%= attachment_image_tag user, :profile_image, size:"100x100", format: 'jpeg' %></td>
+   	<td><%= user.name %></td>
+   </tr>
+   <% end %>
+  </tbody>
+  </table>
+
+  <%= render 'users/list', book: @book, user: @user %>
