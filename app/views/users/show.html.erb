@@ -1,4 +1,24 @@
 <h1>User Show</h1>
+<table>
+ <thead>
+  	<tr>
+	 <th></th>
+	 <th>Title</th>
+	 <th>Opinion</th>
+	 <th></th>
+	</tr>
+ </thead>
+   <% @books. each do |book| %>
+   <tbody>
+	<tr>
+	 <td><%= attachment_image_tag current_user, :profile_image, size:"50x50", format: 'jpeg' %></td>
+	 <td><%= book.title %></td>
+	 <td><%= book.body %></td>
+	</tr>
+  </tbody>
+<% end %>
+</table>
+
 <%= render 'users/list', book: @book, user: @user %>
 
 

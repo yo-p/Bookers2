@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   root to: 'books#top'
 
   # root to: 'users#show'
+  get '/home/about', to: 'books#about'
+
 
   resources :books
 
   resources :users, only: [:index, :show, :edit, :update]
+
 
 
 
