@@ -1,6 +1,6 @@
 <h1>User info</h1>
   <div>
-  <%= attachment_image_tag user, :profile_image, size:"100x100", format: 'jpeg' %>
+  <%= attachment_image_tag user, :profile_image, size:"100x100", format: 'jpeg', fallback: "/assets/no_image.jpg" %>
   <table>
    <tr>
     <th>name</th>

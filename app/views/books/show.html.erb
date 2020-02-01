@@ -3,16 +3,23 @@
    <%= flash[:notice] %>
   </div>
  <% end %>
-<h1>Books detail</h1>
+
+<h1>Book detail</h1>
 <table>
   <tbody>
   	<tr>
   	  <td><%= @book.title %></td>
   	  <td><%= @book.body %></td>
-  	  <td><%= link_to "edit", edit_book_path %></td>
-  	  <td><%= link_to "destroy", book_path(@book.id), method: :delete %></td>
+  	  <td><% if @book.user_id == current_user.id %>
+        <%= link_to "Edit", edit_book_path %>
+          <% end %>
+        </td>
+  	  <td><% if @book.user_id == current_user.id %>
+        <%= link_to "Destroy", book_path(@book.id), method: :delete %>
+          <% end %>
+        </td>
   	</tr>
   </tbody>
 </table>
 
-<%= render 'users/list', book:@book, user:@user %>
+<%= render 'users/list', book:@book_new, user:@user %>

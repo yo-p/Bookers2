@@ -1,7 +1,7 @@
 <h1>Books</h1>
 
 <% if @book.errors.any? %>
-  <div class="alert alert-danger">
+  <p>error</p>
     <ul>
       <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>

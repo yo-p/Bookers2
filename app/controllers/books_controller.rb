@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-	before_action :authenticate_user!, :except=>[:top, :about, :show]
+	before_action :authenticate_user!, :except=>[:top, :about, :index]
 
 
 	def top
@@ -34,6 +34,7 @@ class BooksController < ApplicationController
 	end
 
 	def show
+		@book_new = Book.new
 		@book = Book.find(params[:id])
 		@user = @book.user
 	end
@@ -43,11 +44,14 @@ class BooksController < ApplicationController
 	end
 
 	def update
-		book = Book.find(params[:id])
-		if book.update(book_params)
+		@book = Book.find(params[:id])
+		if @book.update(book_params)
 		   flash[:notice] = 'Book was successfully created.'
+		   redirect_to book_path(@book)
+		else
+			#@book = Book.find(params[:id])
+			render :edit
 		end
-		redirect_to book_path
 	end
 
 	def destroy

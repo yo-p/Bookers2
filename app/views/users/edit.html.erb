@@ -1,8 +1,19 @@
 <h2>User info</h2>
 
-
 <div>
 <%= form_for(@user) do |f| %>
+
+<% if @user.errors.any? %>
+ <p>error</p>
+  <ul>
+  	<% @user.errors.full_messages.each do |message| %>
+  	<li><%= message %></li>
+  	<% end %>
+  </ul>
+ </div>
+<% end %>
+
+
 <h2>name</h2>
 <%= f.text_field :name, autofocus: true, id:"inpuname", placeholder: "name" %>
 <h2>image</h2>
