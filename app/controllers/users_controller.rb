@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-	before_action :authenticate_user!, only: [:edit, :show, :index]
 
 	def index
 		@users = User.all
@@ -15,6 +14,9 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find_by(id: params[:id])
+		if @user.id != current_user.id
+			redirect_to user_path(current_user)
+		end
 	end
 
 	def update
