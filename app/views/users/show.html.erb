@@ -1,11 +1,17 @@
+<div class="container">
 <% if flash[:notice] %>
  <div class="flash">
  	<%= flash[:notice] %>
  </div>
  <% end %>
 
-<h1>User Show</h1>
-<table>
+<div class="row">
+
+<div class="col-xs-3"><%= render 'users/list', book: @book, user: @user %></div>
+
+<div class="col-xs-9">
+<h1> Books </h1>
+<table class="table table">
  <thead>
   	<tr>
 	 <th></th>
@@ -24,8 +30,9 @@
   </tbody>
 <% end %>
 </table>
+</div>
 
-<%= render 'users/list', book: @book, user: @user %>
+
 
 
 

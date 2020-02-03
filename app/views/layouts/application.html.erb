@@ -2,21 +2,28 @@
 <html>
   <head>
     <title>Bookers2</title>
-  <h1>Bookers</h1>
-
-  <% if user_signed_in? %>
-    <li>
-      <%= link_to "Home", user_path(current_user.id) %>
-      <%= link_to "Users", users_path %>
-      <%= link_to "Books", books_path %>
-      <%= link_to "logout", destroy_user_session_path, method: :delete %>
-  <% else %>
-      <%= link_to "Home",root_path %>
-      <%= link_to "About", home_about_path %>
-      <%= link_to "Sign up", "/users/sign_up" %>
-      <%= link_to "login", "/users/sign_in" %>
-    </li>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <span class="col-md-4">Bookers</span>
+    <nav class="col-md-8">
+      <ul>
+      <% if user_signed_in? %>
+      <li>
+        <%= link_to "Home", user_path(current_user.id) %>
+        <%= link_to "Users", users_path %>
+        <%= link_to "Books", books_path %>
+        <%= link_to "logout", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Home",root_path %>
+        <%= link_to "About", home_about_path %>
+        <%= link_to "Sign up", "/users/sign_up" %>
+        <%= link_to "login", "/users/sign_in" %>
+      </li>
+     </ul>
+     <% end %>
+    </nav>
+  </div>
+</div>
 
 
     <%= csrf_meta_tags %>
