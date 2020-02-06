@@ -1,0 +1,19 @@
+
+<% if flash[:notice] %>
+  <div class="flash">
+   <%= flash[:notice] %>
+  </div>
+ <% end %>
+
+<h1>welcame to Bookers</h1>
+ <% if user_signed_in? %>
+  <div class="row"><%= link_to "Sign Up", user_path(current_user) %></div>
+ <% else %>
+  <div class="row"><%= link_to "Sign Up", new_user_registration_path %></div>
+ <% end %>
+
+ <% if user_signed_in? %>
+  <%= link_to "Log in", user_path(current_user) %>
+ <% else %>
+  <%= link_to "Log in", new_user_session_path(current_user) %>
+ <% end %>

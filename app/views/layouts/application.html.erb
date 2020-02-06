@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+
+<div id="container">
+      <div id="theTarget">
+        <div class="image1"></div>
+        <div class="image2"></div>
+        <div class="image3"></div>
+        <div class="image4"></div>
+        <div class="image5"></div>
+      </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <span class="col-md-4">Bookers</span>
+    <nav class="col-md-8">
+      <ul>
+      <% if user_signed_in? %>
+      <li>
+        <%= link_to "Home", user_path(current_user.id) %>
+        <%= link_to "Users", users_path %>
+        <%= link_to "Books", books_path %>
+        <%= link_to "logout", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Home",root_path %>
+        <%= link_to "About", home_about_path %>
+        <%= link_to "Sign up", "/users/sign_up" %>
+        <%= link_to "login", "/users/sign_in" %>
+      </li>
+     </ul>
+     <% end %>
+    </nav>
+  </div>
+</div>
+
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <%= yield %>
+  </body>
+</html>

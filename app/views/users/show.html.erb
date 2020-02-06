@@ -1,0 +1,39 @@
+<div class="container">
+<% if flash[:notice] %>
+ <div class="flash">
+ 	<%= flash[:notice] %>
+ </div>
+ <% end %>
+
+<div class="row">
+
+<div class="col-xs-3"><%= render 'users/list', book: @book, user: @user %></div>
+
+<div class="col-xs-9">
+<h1> Books </h1>
+<table class="table table">
+ <thead>
+  	<tr>
+	 <th></th>
+	 <th>Title</th>
+	 <th>Opinion</th>
+	 <th></th>
+	</tr>
+ </thead>
+   <% @books. each do |book| %>
+   <tbody>
+	<tr>
+	 <td><%= attachment_image_tag @user, :profile_image, size:"50x50", format: 'jpeg' %></td>
+	 <td><%= link_to book.title, book_path(book.id) %></td>
+	 <td><%= book.body %></td>
+	</tr>
+  </tbody>
+<% end %>
+</table>
+</div>
+
+
+
+
+
+
